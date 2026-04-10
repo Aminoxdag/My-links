@@ -1,0 +1,39 @@
+YOUTUBE TRIMMER
+
+DEST_DIR="/storage/emulated/0/Movies/Twitter" && \
+FILENAME="YouTubeclip1_fixed.mp4" && \
+URL="https://youtu.be/aoMWPZYGhQ8?si=LVFTFVe8nrGeG3Hx" && \
+yt-dlp -f "bestvideo+bestaudio/best" \
+--external-downloader ffmpeg \
+--external-downloader-args "ffmpeg_i:-ss 00:10:59 -to 00:11:04" \
+--postprocessor-args "ffmpeg:-c:v libx264 -c:a aac -pix_fmt yuv420p" \
+--recode-video mp4 \
+-o "${DEST_DIR}/${FILENAME}" "$URL" && \
+termux-media-scan "${DEST_DIR}/${FILENAME}"
+
+
+YOUTUBE DOWNLOAD FULL VIDEO
+
+yt-dlp -f "bv[ext=mp4]+ba[ext=m4a]/b[ext=mp4]" --recode-video mp4 --postprocessor-args "ffmpeg:-c:v libx264 -c:a aac -pix_fmt yuv420p" -o "/storage/emulated/0/Movies/Twitter/Full_Video_Fixed.mp4" "https://youtu.be/W3sBrPpcd1s" && termux-media-scan "/storage/emulated/0/Movies/Twitter/Full_Video_Fixed.mp4"
+
+
+TRIMMER DIRECT VIDEO 
+
+DEST_DIR="/storage/emulated/0/Movies/Twitter" && \
+FILENAME="blackedrandom1.mp4" && \
+yt-dlp --external-downloader ffmpeg --external-downloader-args "ffmpeg_i:-ss 00:00:00 -to 00:00:00" -o "${DEST_DIR}/${FILENAME}" "https://s38.bigcdn.cc/pubs/69d72d255ddc08.01852968/1080.mp4" && \
+am broadcast -a android.intent.action.MEDIA_SCANNER_SCAN_FILE -d "file://${DEST_DIR}/${FILENAME}"
+
+
+
+NOT DIRECT VIDEO LINK
+
+DEST_DIR="/storage/emulated/0/Movies/Twitter" && \
+FILENAME="porntrexclip1.mp4" && \
+yt-dlp -f "bestvideo[height=1080]+bestaudio/best[height=1080]" --external-downloader ffmpeg --external-downloader-args "ffmpeg_i:-ss 00:31:33 -to 00:32:28" -o "${DEST_DIR}/${FILENAME}" "https://www.porntrex.com/video/3129095/blacked-della-cate" && \
+am broadcast -a android.intent.action.MEDIA_SCANNER_SCAN_FILE -d "file://${DEST_DIR}/${FILENAME}"
+
+
+TWITTER/X USERNAME TO CATBOX LINKS .TXT
+
+gallery-dl "https://x.com/lunaticlena_/media" --cookies /sdcard/Download/x.com_cookies.txt --get-urls > /sdcard/Download/testdownlena.txt
