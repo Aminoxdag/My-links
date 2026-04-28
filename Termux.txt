@@ -37,3 +37,8 @@ am broadcast -a android.intent.action.MEDIA_SCANNER_SCAN_FILE -d "file://${DEST_
 TWITTER/X USERNAME TO CATBOX LINKS .TXT
 
 gallery-dl "https://x.com/lunaticlena_/media" --cookies /sdcard/Download/x.com_cookies.txt --get-urls > /sdcard/Download/testdownlena.txt
+
+
+DOWNLOAD ALL MEDIA FROM TWITTER X ACCOUNT 
+
+gallery-dl "https://x.com/noon_665/media" --cookies /sdcard/Download/x.com_cookies.txt -D /sdcard/Movies/noon_665 && termux-media-scan /sdcard/Movies/noon_665/*
